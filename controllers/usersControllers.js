@@ -55,7 +55,6 @@ const usersController = {
         });
       }
       const { firstName, lastName, email, age, bio } = req.body;
-      console.log(req.body);
       usersStorage.addUser({ firstName, lastName, email, age, bio });
       res.redirect("/");
     },

@@ -26,6 +26,20 @@ class UsersStorage {
   deleteUser(id) {
     delete this.storage[id];
   }
+
+  search(param) {
+    const results = new Set();
+    for (const [_, user] of Object.entries(this.storage)) {
+      if (
+        user.firstName.includes(param) ||
+        user.lastName.includes(param) ||
+        user.email.includes(param)
+      ) {
+        results.add(user);
+      }
+    }
+    return [...results];
+  }
 }
 
 const usersStorage = new UsersStorage();
